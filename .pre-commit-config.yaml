@@ -1,5 +1,4 @@
 ---
-
 repos:
   - repo: https://github.com/adrienverge/yamllint.git
     rev: master
@@ -12,8 +11,8 @@ repos:
       - id: stylelint
         files: \.(scss)$
         additional_dependencies:
-          - 'stylelint@13.7.2'
-          - 'stylelint-config-standard@20.0.0'
+          - "stylelint@13.7.2"
+          - "stylelint-config-standard@20.0.0"
   - repo: https://github.com/igorshubovych/markdownlint-cli
     rev: master
     hooks:
@@ -33,6 +32,10 @@ repos:
         args: [--branch, develop, --branch, main]
       - id: requirements-txt-fixer
       - id: trailing-whitespace
+  - repo: https://github.com/Lucas-C/pre-commit-hooks-nodejs
+    rev: v1.1.1
+    hooks:
+      - id: htmlhint
   - repo: https://github.com/pre-commit/mirrors-eslint
     rev: v7.14.0
     hooks:
