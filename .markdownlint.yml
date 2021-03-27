@@ -1,0 +1,8 @@
+---
+
+default: true
+
+MD014: false
+
+MD029:
+  style: ordered
