@@ -1,0 +1,52 @@
+---
+name: deploy staging
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-1
+      - name: Install Node.js, Yarn
+        run: |
+          sudo apt-get update \
+              && sudo apt-get install nodejs-dev node-gyp libssl1.0-dev \
+              && sudo apt-get install -y nodejs npm yarn
+      - name: Install libsysconfcpus
+        run: |
+          if [[ ! -d $HOME/sysconfcpus/bin ]]; then
+              git clone https://github.com/obmarg/libsysconfcpus.git
+              pushd libsysconfcpus
+              ./configure --prefix=$HOME/sysconfcpus
+              make && make install
+              popd
+          fi
+      - name: Install dependencies
+        run: yarn
+      - name: Build
+        run: |
+          $HOME/sysconfcpus/bin/sysconfcpus --num 2 \
+              yarn build
+      - name: Deploy JS
+        run: |
+          aws s3 sync dist s3://dx-web/ci-example/staging \
+              --delete \
+              --exclude "index.html" \
+              --no-progress
+      - name: Deploy index.html
+        run: |
+          aws s3 cp dist/index.html \
+              s3://dx-web/ci-example/staging/index.html \
+              --cache-control "no-cache, no-store, must-revalidate" \
+              --no-progress
