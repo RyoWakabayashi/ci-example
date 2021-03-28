@@ -1,10 +1,10 @@
 ---
-name: deploy staging
+name: deploy production
 
 on:
   push:
     branches:
-      - develop
+      - main
 
 jobs:
   deploy:
@@ -40,7 +40,7 @@ jobs:
               yarn build
       - name: Deploy JS
         run: |
-          aws s3 sync dist s3://dx-web/ci-example/staging \
+          aws s3 sync dist s3://dx-web/ci-example/production \
               --delete \
               --exclude "index.html" \
               --acl public-read \
@@ -48,7 +48,7 @@ jobs:
       - name: Deploy index.html
         run: |
           aws s3 cp dist/index.html \
-              s3://dx-web/ci-example/staging/index.html \
+              s3://dx-web/ci-example/production/index.html \
               --cache-control "no-cache, no-store, must-revalidate" \
               --acl public-read \
               --no-progress
