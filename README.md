@@ -5,24 +5,26 @@
 - [実行環境](#実行環境)
 - [サーバー起動](#サーバー起動)
 - [ビルド](#ビルド)
+- [デプロイ](#デプロイ)
 
 ## 実行環境
 
 - 必要な言語・ツール
-  - asdf
-  - yarn
+  asdf
+
 - 以下のコマンドを実行し、必要なパッケージをインストールする
 
-```bash
-asdf plugin add \
-    nodejs \
-    yarn
-asdf install
-pip install --upgrade pip
-pip install -r requirements.txt
-asdf reshim python
-yarn
-```
+  ```bash
+  asdf plugin add \
+      python \
+      nodejs \
+      yarn
+  asdf install
+  pip install --upgrade pip
+  pip install -r requirements.txt
+  asdf reshim python
+  yarn
+  ```
 
 ## 静的解析
 
@@ -73,3 +75,13 @@ Entrypoint main = css/style.css main.js
 ```
 
 - dist 配下にビルドされたコードが出力される
+
+## デプロイ
+
+GitHub Actions によって自動的にデプロイされる
+
+- ステージ環境
+  develop ブランチへのマージ時
+
+- 本番環境
+  main ブランチへのマージ時
