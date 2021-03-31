@@ -44,7 +44,3 @@ repos:
           - eslint@7.14.0
         files: \.(ts)$
         types: [file]
-  - repo: git@github.com:a-ibs/pre-commit-mirrors-jsonlint
-    rev: master
-    hooks:
-      - id: jsonlint
