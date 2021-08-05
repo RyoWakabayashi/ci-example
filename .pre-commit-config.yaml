@@ -1,7 +1,7 @@
 ---
 repos:
   - repo: https://github.com/adrienverge/yamllint.git
-    rev: master
+    rev: v1.26.2
     hooks:
       - id: yamllint
         files: \.(yaml|yml)$
@@ -14,7 +14,7 @@ repos:
           - "stylelint@13.7.2"
           - "stylelint-config-standard@20.0.0"
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: master
+    rev: v0.28.1
     hooks:
       - id: markdownlint
         entry: markdownlint
@@ -22,7 +22,7 @@ repos:
         types: [markdown]
         minimum_pre_commit_version: 0.15.0
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: master
+    rev: v4.0.1
     hooks:
       - id: check-added-large-files
       - id: detect-private-key
@@ -37,10 +37,10 @@ repos:
     hooks:
       - id: htmlhint
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: v7.14.0
+    rev: v7.32.0
     hooks:
       - id: eslint
         additional_dependencies:
-          - eslint@7.14.0
+          - eslint@7.32.0
         files: \.(ts)$
         types: [file]
