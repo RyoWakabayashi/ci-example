@@ -5,7 +5,6 @@
 - [実行環境](#実行環境)
 - [サーバー起動](#サーバー起動)
 - [ビルド](#ビルド)
-- [デプロイ](#デプロイ)
 
 ## 実行環境
 
@@ -71,7 +70,7 @@ Entrypoint main 198 bytes = css/style.css 99 bytes main.js 99 bytes
 orphan modules 164 bytes [orphan] 2 modules
 cacheable modules 192 bytes (javascript) 98 bytes (css/mini-extract)
   ./src/index.js + 1 modules 192 bytes [built] [code generated]
-  css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/scss/style.scss 98 bytes [built] [code generated]
+  css ./node_modules/...
 webpack 5.48.0 compiled successfully in 25257 ms
 ```
 
