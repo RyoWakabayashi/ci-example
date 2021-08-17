@@ -3,17 +3,15 @@
 ## 目次
 
 - [実行環境](#実行環境)
+- [静的解析](#静的解析)
 - [サーバー起動](#サーバー起動)
 - [ビルド](#ビルド)
-- [デプロイ](#デプロイ)
 
 ## 実行環境
 
+### asdf を使う場合
+
 Windows の場合、WSL2 もしくは Docker を使用してください
-
-- 必要な言語・ツール
-
-  asdf
 
 - 以下のコマンドを実行し、必要なパッケージをインストールする
 
@@ -21,22 +19,40 @@ Windows の場合、WSL2 もしくは Docker を使用してください
   asdf plugin add python
   asdf plugin add nodejs
   asdf install
+  npm install
   pip install --upgrade pip
   pip install -r requirements.txt
   asdf reshim python
+  pre-commit install
+  ```
+
+### asdf を使わない場合
+
+- 必要な言語
+
+  - Python
+  - Node.js
+
+- 以下のコマンドを実行し、必要なパッケージをインストールする
+
+  ```bash
   npm install
+  pip install --upgrade pip
+  pip install -r requirements.txt
+  pre-commit install
   ```
 
 ## 静的解析
 
+手動で静的解析を実行する場合は以下のコマンドを実行する
+
 ```bash
 pre-commit run --all-files
-pre-commit install
 ```
 
 ## サーバー起動
 
-- 以下のコマンドで Web サーバーを起動する
+以下のコマンドで Web サーバーを起動する
 
 ```bash
 $ npm start
@@ -52,7 +68,7 @@ $ npm start
 ℹ ｢wdm｣: Compiled successfully.
 ```
 
-- 起動後、自動的にブラウザで <http://localhost:3000/> が開かれる
+起動後、自動的にブラウザで <http://localhost:3000/> が開かれる
 
 ## ビルド
 
@@ -71,7 +87,7 @@ Entrypoint main 198 bytes = css/style.css 99 bytes main.js 99 bytes
 orphan modules 164 bytes [orphan] 2 modules
 cacheable modules 192 bytes (javascript) 98 bytes (css/mini-extract)
   ./src/index.js + 1 modules 192 bytes [built] [code generated]
-  css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/scss/style.scss 98 bytes [built] [code generated]
+  css ./node_modules/...
 webpack 5.48.0 compiled successfully in 25257 ms
 ```
 
