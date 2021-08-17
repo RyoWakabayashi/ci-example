@@ -8,6 +8,7 @@
   "license": " MIT",
   "scripts": {
     "eslint": "eslint .",
+    "eslint_fix": "eslint . --fix",
     "stylelint": "stylelint \"**/*.scss\"",
     "build": "webpack --mode production",
     "start": "webpack-cli serve --mode development",
