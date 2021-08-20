@@ -57,10 +57,8 @@ module.exports = {
   ],
   // 開発用 Web サーバーの設定
   devServer: {
-    inline: true,
     host: "localhost",
-    stats: "errors-only",
-    contentBase: path.join(__dirname, "dist"),
+    static: path.join(__dirname, "dist"),
     port: 3000,
     open: true,
     historyApiFallback: true,
