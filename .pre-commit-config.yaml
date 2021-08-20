@@ -22,14 +22,15 @@ repos:
         entry: markdownlint
         language: node
         types: [markdown]
-        minimum_pre_commit_version: 0.15.0
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.0.1
     hooks:
       - id: check-added-large-files
+      - id: check-json
       - id: detect-private-key
       - id: end-of-file-fixer
       - id: forbid-new-submodules
+      - id: mixed-line-ending
       - id: no-commit-to-branch
         args: [--branch, develop, --branch, main]
       - id: requirements-txt-fixer
@@ -42,7 +43,5 @@ repos:
     rev: v7.32.0
     hooks:
       - id: eslint
-        additional_dependencies:
-          - eslint@7.32.0
         files: \.(js|json)$
         types: [file]
