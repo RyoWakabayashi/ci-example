@@ -1,0 +1,11 @@
+---
+
+version: '3'
+services:
+  linter:
+    image: "github/super-linter"
+    environment:
+      - RUN_LOCAL=true
+      - VALIDATE_JAVASCRIPT_STANDARD=false
+    volumes:
+      - ../:/tmp/lint
