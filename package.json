@@ -10,6 +10,7 @@
     "eslint": "eslint . --ext .json,.js",
     "eslint_fix": "eslint . --ext .json,.js --fix",
     "stylelint": "stylelint \"**/*.scss\"",
+    "super_lint": "docker-compose -f super-linter/docker-compose.yml up",
     "build": "webpack --mode production",
     "start": "webpack-cli serve --mode development",
     "prepare": "bash -c \"cp ./commit-msg ./.git/hooks/\""
