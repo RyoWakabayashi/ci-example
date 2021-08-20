@@ -1,28 +1,21 @@
 {
   "name": "ci-example",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "CIの例",
   "main": "index.js",
   "keywords": [],
-  "author": "",
+  "author": "RyoWakabayashi",
   "license": " MIT",
   "scripts": {
     "eslint": "eslint . --ext .json,.js",
     "eslint_fix": "eslint . --ext .json,.js --fix",
     "stylelint": "stylelint \"**/*.scss\"",
     "super_lint": "docker-compose -f super-linter/docker-compose.yml up",
-    "build": "webpack --mode production",
-    "start": "webpack serve --mode development",
-    "prepare": "bash -c \"cp ./commit-msg ./.git/hooks/\""
+    "prepare": "bash -c \"cp ./git_hooks/commit-msg ./.git/hooks/\""
   },
   "devDependencies": {
-    "@babel/core": "^7.15.0",
-    "@babel/preset-env": "^7.15.0",
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
-    "babel-loader": "^8.2.2",
-    "clean-webpack-plugin": "^3.0.0",
-    "css-loader": "^6.2.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.3",
@@ -31,18 +24,11 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-promise": "^5.1.0",
-    "html-webpack-plugin": "^5.3.2",
-    "mini-css-extract-plugin": "^2.2.0",
     "prettier": "^2.3.2",
-    "sass": "^1.38.0",
-    "sass-loader": "^12.1.0",
     "stylelint": "^13.13.1",
     "stylelint-config-idiomatic-order": "^8.1.0",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-recommended-scss": "^4.3.0",
-    "stylelint-scss": "^3.20.1",
-    "webpack": "^5.51.1",
-    "webpack-cli": "^4.8.0",
-    "webpack-dev-server": "^4.0.0"
+    "stylelint-scss": "^3.20.1"
   }
 }
