@@ -1,6 +1,6 @@
 {
   "name": "ci-example",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "CIの例",
   "main": "index.js",
   "keywords": [],
@@ -11,6 +11,7 @@
     "eslint_fix": "eslint . --ext .json,.js --fix",
     "stylelint": "stylelint \"**/*.scss\"",
     "super_lint": "docker-compose -f super-linter/docker-compose.yml up",
+    "codeql": "codeql/run.sh",
     "prepare": "bash -c \"cp ./git_hooks/commit-msg ./.git/hooks/\""
   },
   "devDependencies": {

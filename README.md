@@ -42,8 +42,30 @@ Windows の場合、WSL2 もしくは Docker を使用してください
 
 ## 静的解析
 
+### pre-commit
+
 手動で静的解析を実行する場合は以下のコマンドを実行する
 
 ```bash
 pre-commit run --all-files
 ```
+
+### Super-Linter
+
+※ Docker が必要
+
+```bash
+npm run super_lint
+```
+
+super-linter/super-linter.log に実行結果が保存される
+
+### CodeQL
+
+※ Docker が必要
+
+```bash
+npm run codeql
+```
+
+codeql/results/codeql.csv に実行結果が保存される

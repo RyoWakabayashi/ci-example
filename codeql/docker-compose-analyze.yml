@@ -1,0 +1,12 @@
+---
+
+version: '3'
+services:
+  linter:
+    build:
+      context: .
+      dockerfile: Dockerfile.patch
+    environment:
+      - CODEQL_CLI_ARGS=database analyze /opt/results/source_db javascript-security-and-quality.qls --format csv --output /opt/results/codeql.csv --threads 4
+    volumes:
+      - ./results:/opt/results

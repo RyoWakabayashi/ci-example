@@ -1,0 +1,13 @@
+---
+
+version: '3'
+services:
+  linter:
+    build:
+      context: .
+      dockerfile: Dockerfile.patch
+    environment:
+      - CODEQL_CLI_ARGS=database create --language=javascript /opt/results/source_db -s /opt/src
+    volumes:
+      - ../:/opt/src
+      - ./results:/opt/results
