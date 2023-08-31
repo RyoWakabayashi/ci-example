@@ -1,0 +1,17 @@
+---
+
+version: '3.2'
+services:
+  linter:
+    image: "github/super-linter:slim-v5"
+    environment:
+      - RUN_LOCAL=true
+      - USE_FIND_ALGORITHM=true
+      - LINTER_RULES_PATH=../rules
+      - CSS_FILE_NAME=.stylelintrc.yml
+      - VALIDATE_ANSIBLE=false
+      - VALIDATE_JAVASCRIPT_STANDARD=false
+      - VALIDATE_DOCKERFILE_HADOLINT=false
+    volumes:
+      - ./tmp/lint:/tmp/lint
+      - ./:/tmp/rules
