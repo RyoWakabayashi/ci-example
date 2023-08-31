@@ -1,8 +1,6 @@
 ---
 
 extends:
-  - stylelint-config-idiomatic-order
-  - stylelint-config-recommended-scss
-  - stylelint-config-prettier
+  - stylelint-config-standard-scss
 rules:
   string-quotes: single

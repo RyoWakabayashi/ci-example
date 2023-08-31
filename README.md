@@ -11,17 +11,30 @@
 
 Windows の場合、WSL2 もしくは Docker を使用してください
 
-- 以下のコマンドを実行し、必要なパッケージをインストールする
+- asdf のプラグインを追加する
 
   ```bash
-  asdf plugin add python
-  asdf plugin add nodejs
+  awk '{system("asdf plugin-add " $1)}' .tool-versions
+  ```
+
+- 必要な開発言語をインストールする
+
+  ```bash
   asdf install
+  ```
+
+- Node.js の依存パッケージをインストールする
+
+  ```bash
   npm install
-  pip install --upgrade pip
-  pip install -r requirements.txt
-  asdf reshim python
-  pre-commit install
+  ```
+
+- Python の依存パッケージをインストールする
+
+  ```bash
+  pip install --upgrade pip \
+    && pip install -r requirements.txt
+    && asdf reshim python
   ```
 
 ### asdf を使わない場合
@@ -31,13 +44,17 @@ Windows の場合、WSL2 もしくは Docker を使用してください
   - Python
   - Node.js
 
-- 以下のコマンドを実行し、必要なパッケージをインストールする
+- Node.js の依存パッケージをインストールする
 
   ```bash
   npm install
-  pip install --upgrade pip
-  pip install -r requirements.txt
-  pre-commit install
+  ```
+
+- Python の依存パッケージをインストールする
+
+  ```bash
+  pip install --upgrade pip \
+    && pip install -r requirements.txt
   ```
 
 ## 静的解析
@@ -48,6 +65,12 @@ Windows の場合、WSL2 もしくは Docker を使用してください
 
 ```bash
 pre-commit run --all-files
+```
+
+コミット時に静的解析を自動実行する場合は以下のコマンドを実行する
+
+```bash
+pre-commit install
 ```
 
 ### Super-Linter

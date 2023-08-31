@@ -10,22 +10,23 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: wagoid/commitlint-github-action@v1
+      - uses: wagoid/commitlint-github-action@v5
+
   super-lint:
     name: Lint Code Base
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Lint Code Base
-        uses: github/super-linter@v4
+        uses: github/super-linter/slim@v5
         env:
-          VALIDATE_ALL_CODEBASE: false
-          VALIDATE_DOCKERFILE: false
-          VALIDATE_JAVASCRIPT_STANDARD: false
           LINTER_RULES_PATH: .
           DEFAULT_BRANCH: main
+          VALIDATE_ALL_CODEBASE: false
+          VALIDATE_ANSIBLE: false
+          VALIDATE_JAVASCRIPT_STANDARD: false
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

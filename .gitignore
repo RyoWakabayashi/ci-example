@@ -6,3 +6,6 @@ dist
 
 # logs
 *.log
+
+# temporary files
+tmp

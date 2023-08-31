@@ -2,7 +2,7 @@
 
 version: '3'
 services:
-  linter:
+  codeql_analyze:
     build:
       context: .
       dockerfile: Dockerfile.patch
