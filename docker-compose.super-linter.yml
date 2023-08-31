@@ -9,6 +9,7 @@ services:
       - USE_FIND_ALGORITHM=true
       - LINTER_RULES_PATH=../rules
       - CSS_FILE_NAME=.stylelintrc.yml
+      - YAML_CONFIG_FILE=.yamllint
       - VALIDATE_ANSIBLE=false
       - VALIDATE_JAVASCRIPT_STANDARD=false
       - VALIDATE_DOCKERFILE_HADOLINT=false
