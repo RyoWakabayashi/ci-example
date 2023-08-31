@@ -50,6 +50,8 @@ copy_target_files() {
         cp "${file}" "${WORKDIR}/${file}"
     done
 
+    cp .editorconfig "${WORKDIR}/.editorconfig"
+
 }
 
 lint() {
