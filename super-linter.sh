@@ -40,7 +40,7 @@ copy_target_files() {
     mkdir -p "${WORKDIR}"
 
     target_files=$(
-        git status --porcelain \
+        git status --porcelain --no-renames \
             | grep --invert-match '^ *D' \
             | awk '{print $2}'
     )
