@@ -47,7 +47,7 @@ copy_target_files() {
 
     for file in ${target_files}; do
         mkdir -p "${WORKDIR}/$(dirname "${file}")"
-        cp "${file}" "${WORKDIR}/${file}"
+        cp -r "${file}" "${WORKDIR}/${file}"
     done
 
     cp .editorconfig "${WORKDIR}/.editorconfig"
