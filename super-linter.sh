@@ -40,14 +40,14 @@ copy_target_files() {
     mkdir -p "${WORKDIR}"
 
     target_files=$(
-        git status --porcelain \
+        git status --porcelain --no-renames \
             | grep --invert-match '^ *D' \
             | awk '{print $2}'
     )
 
     for file in ${target_files}; do
         mkdir -p "${WORKDIR}/$(dirname "${file}")"
-        cp "${file}" "${WORKDIR}/${file}"
+        cp -R "${file}" "${WORKDIR}/${file}"
     done
 
     cp .editorconfig "${WORKDIR}/.editorconfig"
